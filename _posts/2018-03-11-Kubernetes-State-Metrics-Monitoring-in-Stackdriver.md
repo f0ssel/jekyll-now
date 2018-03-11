@@ -31,7 +31,7 @@ We deploy all of our helm charts through a Jenkins server but for this guide we 
 First we'll start with authenticating to the cluster:
 ```bash
 gcloud container clusters get-credentials $CLUSTER \
-    --zone $ZONE\
+    --zone $ZONE \
     --project $PROJECT
 ```
 
@@ -57,7 +57,7 @@ helm install \
     kube-state-metrics stable/kube-state-metrics
 ```
 
-You will need the endpoint of the kube-state-metrics for pointing prometheus-to-sd to it in the next step. If you use the command above the endpoint for reaching this service will be:
+You will need the endpoint of the kube-state-metrics for pointing prometheus-to-sd to it in the next step. If you use the command above the endpoint for reaching the service will be:
 
 `ENDPOINT=http://kube-state-metrics-kube-state-metrics.monitoring.svc.cluster.local:8080` 
 
