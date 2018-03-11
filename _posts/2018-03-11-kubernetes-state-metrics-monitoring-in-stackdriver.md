@@ -68,7 +68,7 @@ And you can then install prometheus-to-sd:
 helm install \
     --namespace monitoring \
     --set metricsSources.kube-state-metrics=$ENDPOINT
-    kube-state-metrics stable/kube-state-metrics
+    kube-state-metrics stable/stackdriver-to-sd
 ```
 
 And that's it! You can verify this configuration is working by going to Stackdriver > Metric Explorer and start typing "custom/kube-state-metrics/" and the search bar should fuzzy-find all of your new kubernetes metrics. You can create dashboards and alerts just like any other metrics with this new data source. 
