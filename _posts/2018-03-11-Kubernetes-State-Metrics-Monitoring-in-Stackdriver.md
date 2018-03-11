@@ -26,7 +26,7 @@ prometheus-to-sd is a simple component that can scrape metrics stored in prometh
 We deploy all of our helm charts through a Jenkins server but for this guide we will be showing steps from any machine that has the following:
 - Ability to authenticate to the GKE cluster through the `gcloud` cli tool
 - Kubectl installed if it isn't already from the gcloud cli
-- Helm client installed on your machine
+- Helm client [installed](https://docs.helm.sh/using_helm/#installing-helm) on your machine
 
 First we'll start with authenticating to the cluster:
 ```bash
