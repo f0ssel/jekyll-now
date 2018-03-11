@@ -11,7 +11,7 @@ We will be taking advantage of open-sourced helm charts for speed and reproducea
 
 ### Why export to Stackdriver?
 
-At smash.gg we are already using Stackdriver for monitoring most resources in our GCP project through dashboards as well as automated alerting to slack channels. As a startup we'd like to use a managed service for monitoring so it's one less application in our stack that we have to deploy, configure, and ensure uptime on. We needed alerting on the failures of any [Kubernetes CronJobs](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/) we were running and this seemed to be the quicklest and most elegant solution.
+At [smash.gg](https://smash.gg) we are already using Stackdriver for monitoring most resources in our GCP project through dashboards as well as automated alerting to slack channels. As a startup we'd like to use a managed service for monitoring so it's one less application in our stack that we have to deploy, configure, and ensure uptime on. We needed alerting on the failures of any [Kubernetes CronJobs](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/) we were running and this seemed to be the quicklest and most elegant solution.
 
 ### [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics)
 
