@@ -19,7 +19,7 @@ kube-state-metrics is a simple service that listens to the Kubernetes API server
 
 ### [prometheus-to-sd](https://github.com/GoogleCloudPlatform/k8s-stackdriver/tree/master/prometheus-to-sd)
 
-prometheus-to-sd is a simple component that can scrape metrics stored in prometheus text format from one or multiple components and push them to the Stackdriver. We will use this to scrape from kube-state-metrics and export to Stackdriver as a custom metric.
+prometheus-to-sd is a simple component that can scrape metrics stored in prometheus text format from one or multiple components and push them to the Stackdriver. We will use this to scrape from kube-state-metrics and export to Stackdriver as a custom metric. Even though we are not standing up a Prometheus server with this stack, we can still pull the metrics from kube-state-metrics since they are presented in a common format.
 
 ### Code
 
