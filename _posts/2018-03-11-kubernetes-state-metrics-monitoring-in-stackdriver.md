@@ -40,7 +40,7 @@ Next we will initialize helm. This will install [Tiller](https://docs.helm.sh/us
 # If Tiller is not installed:
 helm init
 
-# If you are running this on a ephemeral build environment 
+# If you are running this on an ephemeral build environment 
 # (such as a Jenkins agent) and know Tiller is already installed:
 helm init --client-only
 ```
