@@ -5,23 +5,23 @@ title: Kubernetes State Metrics Monitoring in Stackdriver
 
 This is a guide on how to export metrics about the state of a Kubernetes cluster hosted on GKE to Stackdriver. We will be deploying [kube-state-metrics]() and [prometheus-to-sd]() applications to a Kubernetes cluster to scape data from the Kubernetes API and export it to Stackdriver. Stackdriver out of the box will only monitor node level metrics, such as CPU and memory usage, and container level metrics. If you need more detailed information about Kubernetes level metrics such as the number of healthy pods in a service or alerting on container restarts you must scrape and export them to Stackdriver as custom metrics. 
 
-## Deploying to Kubernetes
+### Deploying to Kubernetes
 
 We will be taking advantage of open-sourced helm charts for speed and reproduceability. [Helm]() is quickly becoming the de-facto tool for deploying applications to Kubernetes and it's [public repository]() has a ton a useful applications that are preconfigured to work out of the box. This guide will be assuming familiarity with Helm and general concepts regarding deployments to Kubernetes.
 
-## Why export to Stackdriver?
+### Why export to Stackdriver?
 
 At smash.gg we are already using Stackdriver for monitoring most resources in our GCP project through dashboards as well as automated alerting to slack channels. As a startup we'd like to use a managed service for monitoring so it's one less application in our stack that we have to deploy, configure, and ensure uptime on. We needed alerting on the failures of any [Kubernetes CronJobs]() we were running and this seemed to be the quicklest and most elegant solution.
 
-## [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics)
+### [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics)
 
 kube-state-metrics is a simple service that listens to the Kubernetes API server and generates metrics about the state of the objects. (See examples in the Metrics section below.) It is not focused on the health of the individual Kubernetes components, but rather on the health of the various objects inside, such as deployments, nodes and pods.
 
-## [prometheus-to-sd](https://github.com/GoogleCloudPlatform/k8s-stackdriver/tree/master/prometheus-to-sd)
+### [prometheus-to-sd](https://github.com/GoogleCloudPlatform/k8s-stackdriver/tree/master/prometheus-to-sd)
 
 prometheus-to-sd is a simple component that can scrape metrics stored in prometheus text format from one or multiple components and push them to the Stackdriver. We will use this to scrape from kube-state-metrics and export to Stackdriver as a custom metric.
 
-## Code
+### Code
 
 We deploy all of our helm charts through a Jenkins server but for this guide we will be showing steps from any machine that has the following:
 - Ability to authenticate to the GKE cluster through the `gcloud` cli tool
