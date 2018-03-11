@@ -3,15 +3,15 @@ layout: post
 title: Kubernetes State Metrics Monitoring in Stackdriver
 ---
 
-This is a guide on how to export metrics about the state of a Kubernetes cluster hosted on GKE to Stackdriver. We will be deploying [kube-state-metrics]() and [prometheus-to-sd]() applications to a Kubernetes cluster to scape data from the Kubernetes API and export it to Stackdriver. Stackdriver out of the box will only monitor node level metrics, such as CPU and memory usage, and container level metrics. If you need more detailed information about Kubernetes level metrics such as the number of healthy pods in a service or alerting on container restarts you must scrape and export them to Stackdriver as custom metrics. 
+This is a guide on how to export metrics about the state of a Kubernetes cluster hosted on GKE to Stackdriver. We will be deploying [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics) and [prometheus-to-sd](https://github.com/GoogleCloudPlatform/k8s-stackdriver/tree/master/prometheus-to-sd) applications to a Kubernetes cluster to scape data from the Kubernetes API and export it to Stackdriver. Stackdriver out of the box will only monitor node level metrics, such as CPU and memory usage, and container level metrics. If you need more detailed information about Kubernetes level metrics such as the number of healthy pods in a service or alerting on container restarts you must scrape and export them to Stackdriver as custom metrics. 
 
 ### Deploying to Kubernetes
 
-We will be taking advantage of open-sourced helm charts for speed and reproduceability. [Helm]() is quickly becoming the de-facto tool for deploying applications to Kubernetes and it's [public repository]() has a ton a useful applications that are preconfigured to work out of the box. This guide will be assuming familiarity with Helm and general concepts regarding deployments to Kubernetes.
+We will be taking advantage of open-sourced helm charts for speed and reproduceability. [Helm](https://helm.sh/) is quickly becoming the de-facto tool for deploying applications to Kubernetes and it's [public repository](https://github.com/kubernetes/charts) has a ton a useful applications that are preconfigured to work out of the box. This guide will be assuming familiarity with Helm and general concepts regarding deployments to Kubernetes.
 
 ### Why export to Stackdriver?
 
-At smash.gg we are already using Stackdriver for monitoring most resources in our GCP project through dashboards as well as automated alerting to slack channels. As a startup we'd like to use a managed service for monitoring so it's one less application in our stack that we have to deploy, configure, and ensure uptime on. We needed alerting on the failures of any [Kubernetes CronJobs]() we were running and this seemed to be the quicklest and most elegant solution.
+At smash.gg we are already using Stackdriver for monitoring most resources in our GCP project through dashboards as well as automated alerting to slack channels. As a startup we'd like to use a managed service for monitoring so it's one less application in our stack that we have to deploy, configure, and ensure uptime on. We needed alerting on the failures of any [Kubernetes CronJobs](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/) we were running and this seemed to be the quicklest and most elegant solution.
 
 ### [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics)
 
@@ -35,7 +35,7 @@ gcloud container clusters get-credentials $CLUSTER \
     --project $PROJECT
 ```
 
-Next we will initialize helm. This will install [Tiller](), the Helm server, on the cluster if it doesn't already exist.
+Next we will initialize helm. This will install [Tiller](https://docs.helm.sh/using_helm/#installing-tiller), the Helm server, on the cluster if it doesn't already exist.
 ```bash
 # If Tiller is not installed:
 helm init
@@ -45,7 +45,7 @@ helm init
 helm init --client-only
 ```
 
-Create the Kubenetes namespace. We called ours "monitoring" but you can put these wherever you see fit.
+Create the Kubenetes namespace. We will be using "monitoring" for this guide but you can use whatever you see fit.
 ```bash
 kubectl create ns monitoring
 ```
