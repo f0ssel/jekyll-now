@@ -9,8 +9,6 @@ This is a guide on how to export metrics about the state of a Kubernetes cluster
 
 We will be taking advantage of open-sourced helm charts for speed and reproduceability. [Helm](https://helm.sh/) is quickly becoming the de-facto tool for deploying applications to Kubernetes and it's [public repository](https://github.com/kubernetes/charts) has a ton a useful applications that are preconfigured to work out of the box. This guide will be assuming familiarity with Helm and general concepts regarding deployments to Kubernetes.
 
-Note: I have found that when you are evaluating ways to achieve common devops tasks such as deployments, rollbacks, and application configuration it is usually best to go down the path of least resitance and pull in something off-the-shelf. The more custom your stack becomes the more development hours are spent maintaining the stack (and training others on how to use it) and less time spent on solving new development problems. There's almost always a few big tools many other people are using to solve a problem and are usually much more robust solutions when compared to in-house tooling. 
-
 ### Why export to Stackdriver?
 
 At [smash.gg](https://smash.gg) we are already using Stackdriver for monitoring most resources in our GCP project through dashboards as well as automated alerting to slack channels. As a startup we'd like to use a managed service for monitoring so it's one less application in our stack that we have to deploy, configure, and ensure uptime on. We needed alerting on the failures of any [Kubernetes CronJobs](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/) we were running and this seemed to be the quicklest and most elegant solution.
