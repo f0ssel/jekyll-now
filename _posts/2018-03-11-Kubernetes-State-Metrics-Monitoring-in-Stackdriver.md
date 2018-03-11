@@ -59,7 +59,9 @@ helm install \
 
 You will need the endpoint of the kube-state-metrics for pointing prometheus-to-sd to it in the next step. If you use the command above the endpoint for reaching the service will be:
 
-`ENDPOINT=http://kube-state-metrics-kube-state-metrics.monitoring.svc.cluster.local:8080` 
+```bash
+ENDPOINT=http://kube-state-metrics-kube-state-metrics.monitoring.svc.cluster.local:8080
+```
 
 And you can then install prometheus-to-sd:
 ```bash
