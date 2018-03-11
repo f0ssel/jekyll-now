@@ -4,12 +4,10 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
-
-### More Information
-
-A place to include any other types of information that you'd like to include about yourself.
+I am a Devops Engineer located in Atlanta, GA. I work for an eSports company called [smash.gg](https://smash.gg/). I play games and try to solve cool infrastructure problems. 
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[garrettdelfosse@gmail.com](mailto:garrettdelfosse@gmail.com)
+
+Check out my [github](https://github.com/f0ssel) page.
