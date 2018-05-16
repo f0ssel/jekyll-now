@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Kubernetes State Metrics Monitoring in Stackdriver
+title: "[DevOps] Kubernetes Metrics Monitoring in Stackdriver"
 ---
 
 This is a guide on how to export metrics about the state of a Kubernetes cluster hosted on GKE to Stackdriver. We will be deploying [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics) and [prometheus-to-sd](https://github.com/GoogleCloudPlatform/k8s-stackdriver/tree/master/prometheus-to-sd) applications to a Kubernetes cluster to scape data from the Kubernetes API and export it to Stackdriver. Stackdriver out of the box will only monitor node level metrics, such as CPU and memory usage, and container level metrics. If you need more detailed information about Kubernetes level metrics such as the number of healthy pods in a service or alerting on container restarts you must scrape and export them to Stackdriver as custom metrics. 
