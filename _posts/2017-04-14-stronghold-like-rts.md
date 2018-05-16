@@ -1,6 +1,6 @@
 ---
 layout: post
-title: \[GameDev\] Marching Squares + RTS Map Mechanics
+title: "[GameDev] Marching Squares + RTS Map Mechanics"
 ---
 
 Again, this is an archive of some progress I made in mid-2017 on a side project. I always loved the Stronghold Crusader game as a kid and felt like taking a crack at a similar-feel game. This project was grinded out in a few days and never took off past what you see below, but I had a lot of fun working on it and want to pick it back up eventually. I learned a lot about the marching squares algorithms and enjoyed the simplicity of the map generator. I uploaded the videos to twitter but I'd like to have everything in one place so I'm linking them here for now.

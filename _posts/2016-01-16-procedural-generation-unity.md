@@ -1,6 +1,6 @@
 ---
 layout: post
-title: \[GameDev\] Procedurally Generated Meshes
+title: "[GameDev] Procedurally Generated Meshes"
 ---
 
 I wanted to move over some images I had from my old blog onto this one so they don't get lost. These are from early 2016 where I was learning and playing around with procedural generation, specifically with terrains. I loved the low poly look so I stuck with the non-shared vertex faces. Most of these were just fun projects to run around in and learn new things. 
